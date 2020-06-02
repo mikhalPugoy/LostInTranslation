@@ -5,23 +5,37 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="topnav">
-          <a class="active" href="{{ url_for('home') }}">Home</a>
-          <a href="{{ url_for('about') }}">About</a>
-          <p>Lost In Translation</p>
+<div class="outer-div">
+  <div class="area">
+    <div class="column">
+      <div class="wrapper">
+        <div class="table red">
+          <span>***Table Content***</span>
         </div>
-        
-
-<!---
-        <h1 class="logo">Lost in Translation</h1>
-        <div class="topnav">
-          <a class="active" href="{{ url_for('home') }}">Home</a>
-          <a href="{{ url_for('about') }}">About</a>
-        </div>
---->
       </div>
+      <div class="wrapper">
+        <div class="table violet">
+          <span>***Table Content***</span>
+        </div>
+      </div>
+    </div>
+    <div class="column">
+      <div class="wrapper">
+        <div class="table violet">
+          <span>***Table Content***</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="icons">
+    <p>Icon</p>
+    <p>Icon</p>
+    <p>Icon</p>
+    <p>Icon</p>
+    <p>Icon</p>
+    <p>Icon</p>
+  </div>
+</div>
     </header>
     <!-- Note the below div class is replaced by other HTML-->
     <div class="container">
