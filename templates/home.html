@@ -1,8 +1,25 @@
 <!-- Note linked to layout.html and extends it. However Flask still calls this html via renderer -->
 {% extends "layout.html" %}
 {% block content %}
-  <div class="home">
-    <h1>A Python product</h1>
-    <p>This website was built with Python via the Flask framework.</p>
+  <div class="content">
+    <h1>{{var3}}</h1>
+    <p>This translator will take a text, and run it through the speficied number of translations using the googletrans AP1.</p>
+  </div>
+  <div class="content">
+    <form method="POST">
+      <div class = "left">
+          <label for="input">Input Text to Translate:</label><br>
+          <!-- Var1 for flask render_template function  -->
+          <textarea  name = "input">{{var1}}</textarea>
+      </div>
+      <div class = "right">
+          <label for="output">Output:</label><br>
+          <!-- Var2 for flask render_template function  -->
+          <textarea  name = "output" readonly>{{var2}}</textarea>
+      </div>
+      <div style="text-align: center;">
+        Translate <input type="text" name="times" id = "number" value = 5> Times <input type="submit">
+      </div>
+    </form>
   </div>
 {% endblock %}

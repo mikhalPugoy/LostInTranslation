@@ -1,52 +1,48 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', var1="Enter Translation Here",var2="",var3='The Translator',var4 = "5")
 
 @app.route('/about/')
 def about():
     return render_template('about.html')
 
-def main():
+@app.route('/', methods=['POST'])
+def my_form_post():
+    print("Post!")
+    originalText = format(request.form['input'])
+    n = int(format(request.form['times']))
+    (translatedText,b) = testTranslate (originalText,n)
+    
+    return render_template('home.html', var1=originalText,var2=translatedText,var3=b,var4="5")
+
+
+def testTranslate(text,n):
   from LostInTranslation import ChainTranslator
 
-  text = """It was all a dream, I used to read Word Up! magazine
-Salt-n-Pepa and Heavy D up in the limousine
-Hangin' pictures on my wall
-Every Saturday Rap Attack, Mr. Magic, Marley Marl
-I let my tape rock 'til my tape popped
-Smokin' weed in Bambu, sippin' on Private Stock
-Way back, when I had the red and black lumberjack
-With the hat to match
-Remember Rappin' Duke? Duh-ha, duh-ha
-You never thought that hip-hop would take it this far
-Now I'm in the limelight 'cause I rhyme tight
-Time to get paid, blow up like the World Trade
-Born sinner, the opposite of a winner
-Remember when I used to eat sardines for dinner
-Peace to Ron G, Brucie B, Kid Capri
-Funkmaster Flex, Lovebug Starski
-I'm blowin' up like you thought I would
-Call the crib, same number, same hood
-It's all good (It's all good)
-And if you don't know, now you know, nigga
-  """
-
-  trans = ChainTranslator(5)
+  trans = ChainTranslator(n)
   print ("Translation Chain:")
-  print (trans.translationChain , "\n")
+  y = translateChainString(trans.translationChain)
+  print (translateChainString(trans.translationChain) , "\n")
   print ("Original:")
   print (text)
   print ("Lost In Translaton:")
   print (trans.Translate(text))
   
+  return (trans.Translate(text),y)
   # Debug to see all steps, note intermediate steps stored in chain translator list of x translators
   #trans.ShowAllTranslationSteps()
   
+def translateChainString(li):
+  x = 'Translating from '
+  for i in range(len(li)-1):
+    x = x + li[i] + ' to '
+  x = x + li[i+1]
+  return x
 
 if __name__ == "__main__":
   # dont run the main function, instead launch flask
-  #main()
+  #testTranslate("testing",5)
   app.run(host='0.0.0.0', port=8080, debug=True)
