@@ -8,22 +8,45 @@ body {
  * Formatting the header area
  */
 header {
-  background-color: #DFB887;
-  height: 35px;
+  background-color: #333;
   width: 100%;
   opacity: .9;
-  margin-bottom: 10px;
+  border: 1px solid red; 
 }
-header h1.logo {
-  margin: 0;
-  font-size: 1.7em;
-  color: #fff;
-  text-transform: uppercase;
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
   float: left;
-}
-header h1.logo:hover {
-  color: #fff;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
   text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav h1 {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-weight:200;
+  font-size: 22px;
+  margin: 0px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
 }
 /*
  * Centering the body content
@@ -31,20 +54,23 @@ header h1.logo:hover {
 .container {
   width: 100%;
   margin: 0 auto;
+  
 }
 div.home {
-  padding: 10px 0 30px 0;
+   border: 1px solid red; 
+   padding: 0 0 0 0;
   background-color: #E6E6FA;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
 }
 div.about {
-  padding: 10px 0 30px 0;
+    border: 1px solid red; 
+    padding: 10px 0 30px 0;
   background-color: #E6E6FA;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
 }
 h2 {
   font-size: 3em;
@@ -59,18 +85,4 @@ h3 {
   text-align: center;
   letter-spacing: -1px;
   color: #999;
-}
-.menu {
-  float: right;
-  margin-top: 8px;
-}
-.menu li {
-  display: inline;
-}
-.menu li + li {
-  margin-left: 35px;
-}
-.menu li a {
-  color: #444;
-  text-decoration: none;
 }
